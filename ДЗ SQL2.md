@@ -26,14 +26,15 @@
 
 ### Задание 3
   
-    SELECT month(p.payment_date) AS 'Highest Amount of Payments Received Month', count(r.rental_id) 'Number of Rentals'
+    SELECT DATE_FORMAT(p.payment_date, '%Y.%m') AS 'Highest Amount of Payments Received Month', count(r.rental_id) 'Number of Rentals'  
     FROM payment p INNER JOIN 
-         rental r ON p.rental_id = r.rental_id 
-         GROUP BY  month(payment_date)
+     rental r ON p.rental_id = r.rental_id 
+    GROUP BY DATE_FORMAT(p.payment_date, '%Y.%m') 
     ORDER BY  sum(p.amount) DESC
     LIMIT 1
 
-![3](https://github.com/Niko1a/lebedev/assets/110035244/aa786acc-5a70-451a-8da3-9475b32a7e09)
+![3](https://github.com/Niko1a/lebedev/assets/110035244/68d96116-5f34-43bf-9ffc-2a1418b1e081)
+
 
 
 
